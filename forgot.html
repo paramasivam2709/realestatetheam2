@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Forgot Password | Stackly</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/colors/scheme-01.css" rel="stylesheet">
+
+    <style>
+        body{
+            background:#092519;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            height:100vh;
+            font-family:'Figtree', sans-serif;
+        }
+
+        .auth-box{
+            background:#0f2e22;
+            padding:40px;
+            border-radius:20px;
+            width:400px;
+            color:#fff;
+            box-shadow:0 20px 50px rgba(0,0,0,.4);
+            animation:fadeIn .6s ease;
+        }
+
+        @keyframes fadeIn{
+            from{opacity:0; transform:translateY(20px);}
+            to{opacity:1; transform:translateY(0);}
+        }
+
+        .form-control{
+            background:#0a1f17;
+            border:1px solid rgba(255,255,255,.1);
+            color:#fff;
+            height:45px;
+        }
+
+        .form-control:focus{
+            border-color:var(--primary-color);
+            box-shadow:none;
+            background:#0a1f17;
+            color:#fff;
+        }
+
+        .error-msg{
+            color:#ff4d4d;
+            font-size:13px;
+            display:none;
+            margin-top:5px;
+        }
+
+        .auth-links{
+            text-align:center;
+            margin-top:15px;
+            font-size:14px;
+        }
+
+        .auth-links a{
+            color:#ccc;
+        }
+
+        .auth-links a:hover{
+            color:#fff;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="auth-box">
+
+    <h3 class="text-center mb-4">Forgot Password</h3>
+
+    <form id="forgotForm">
+
+        <div class="mb-3">
+            <input type="email" id="email" class="form-control" placeholder="Enter your email">
+            <div class="error-msg" id="emailError">Email is required</div>
+        </div>
+
+        <button type="submit" class="btn-main w-100">
+            <span>Reset Password</span>
+        </button>
+
+        <div class="auth-links">
+            <a href="login.html">Back to Login</a>
+        </div>
+
+    </form>
+
+</div>
+
+<script>
+document.getElementById("forgotForm").addEventListener("submit",function(e){
+e.preventDefault();
+let email=document.getElementById("email");
+
+if(email.value===""){
+document.getElementById("emailError").style.display="block";
+}else{
+window.location.href="404.html";
+}
+});
+</script>
+
+</body>
+</html>

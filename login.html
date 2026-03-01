@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login | Stackly</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/colors/scheme-01.css" rel="stylesheet">
+
+    <style>
+        body{
+            background:#092519;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            height:100vh;
+        }
+
+        .auth-box{
+            background:#0f2e22;
+            padding:40px;
+            border-radius:20px;
+            width:400px;
+            color:#fff;
+        }
+
+        .form-control{
+            background:#0a1f17;
+            border:1px solid rgba(255,255,255,.1);
+            color:#fff;
+        }
+
+        .password-wrapper{
+            position:relative;
+        }
+
+        .toggle-password{
+            position:absolute;
+            right:15px;
+            top:50%;
+            transform:translateY(-50%);
+            cursor:pointer;
+            font-size:14px;
+        }
+
+        .error-msg{
+            color:#ff4d4d;
+            font-size:13px;
+            display:none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="auth-box">
+
+    <h3 class="mb-4 text-center">Login</h3>
+
+    <form id="loginForm">
+
+        <div class="mb-3">
+            <input type="email" class="form-control" id="email" placeholder="Email">
+            <div class="error-msg" id="emailError">Email is required</div>
+        </div>
+
+        <div class="mb-3 password-wrapper">
+            <input type="password" class="form-control" id="password" placeholder="Password">
+            <span class="toggle-password" onclick="togglePassword()">👁</span>
+            <div class="error-msg" id="passError">Password is required</div>
+        </div>
+
+        <button type="submit" class="btn-main w-100">
+            <span>Login</span>
+        </button>
+
+        <div class="text-center mt-3">
+            <a href="forgot.html" class="text-light">Forgot Password?</a><br>
+            <a href="register.html" class="text-light">Create Account</a>
+        </div>
+
+    </form>
+</div>
+
+<script>
+function togglePassword(){
+    let pass = document.getElementById("password");
+    pass.type = pass.type === "password" ? "text" : "password";
+}
+
+document.getElementById("loginForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let email = document.getElementById("email");
+    let password = document.getElementById("password");
+    let valid = true;
+
+    if(email.value === ""){
+        document.getElementById("emailError").style.display="block";
+        valid=false;
+    } else {
+        document.getElementById("emailError").style.display="none";
+    }
+
+    if(password.value === ""){
+        document.getElementById("passError").style.display="block";
+        valid=false;
+    } else {
+        document.getElementById("passError").style.display="none";
+    }
+
+    if(valid){
+        window.location.href="404.html";
+    }
+});
+</script>
+
+</body>
+</html>
