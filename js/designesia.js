@@ -1,6 +1,4 @@
- /* --------------------------------------------------
-  * © Copyright 2026 - Homely by Designesia
-  * --------------------------------------------------*/
+
 (function($) {
     'use strict';
     
@@ -1835,5 +1833,40 @@
         });
         gridGallery();
     });
+
+    
+document.getElementById("newsletterForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let emailInput = document.getElementById("newsletterEmail");
+    let message = document.getElementById("newsletterMsg");
+    let email = emailInput.value.trim();
+
+    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+    if(email === ""){
+        message.style.color = "#ff4d4d";
+        message.innerText = "Email is required";
+        return;
+    }
+
+    if(!email.match(emailPattern)){
+        message.style.color = "#ff4d4d";
+        message.innerText = "Please enter valid email address";
+        return;
+    }
+
+    // Success
+    message.style.color = "#4BB543";
+    message.innerText = "Successfully subscribed!";
+
+    emailInput.value = "";
+
+    // Optional redirect after 2 seconds
+    // setTimeout(() => {
+    //     window.location.href = "404.html";
+    // }, 2000);
+});
+
     
  })(jQuery);
