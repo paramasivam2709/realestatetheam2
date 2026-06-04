@@ -58,6 +58,70 @@
             from{opacity:0; transform:translateY(30px);}
             to{opacity:1; transform:translateY(0);}
         }
+        footer .footer-widget {
+            margin-bottom: 30px;
+        }
+        footer .footer-widget h5 {
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        footer .footer-widget ul li {
+            margin-bottom: 12px;
+        }
+        footer .footer-widget ul li a {
+            color: rgba(255,255,255,.82);
+        }
+        footer .footer-widget ul li a:hover {
+            color: #8fd6b0;
+        }
+        footer .footer-contact p,
+        footer .footer-note,
+        footer .footer-widget p {
+            color: rgba(255,255,255,.78);
+        }
+        footer .footer-contact p {
+            margin-bottom: 10px;
+        }
+        footer .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            margin-right: 10px;
+            border: 1px solid rgba(255,255,255,.15);
+            border-radius: 50%;
+            color: #fff;
+        }
+        footer .footer-social a:hover {
+            background: #0f8c5c;
+            border-color: #0f8c5c;
+            color: #fff;
+        }
+        footer .newsletter-form .form-control {
+            min-height: 48px;
+            border: 1px solid rgba(255,255,255,.15);
+            background: rgba(255,255,255,.05);
+            color: #fff;
+        }
+        footer .newsletter-form .form-control::placeholder {
+            color: rgba(255,255,255,.65);
+        }
+        footer .newsletter-form .btn-main {
+            min-width: 150px;
+        }
+        @media (max-width: 767px) {
+            footer .footer-social a {
+                margin-bottom: 10px;
+            }
+            footer .newsletter-form .input-group {
+                flex-direction: column;
+            }
+            footer .newsletter-form .btn-main {
+                width: 100%;
+                border-radius: 35px;
+            }
+        }
     </style>
 </head>
 
@@ -317,73 +381,67 @@
     </div>
 </section>
 <footer class="bg-dark-1 text-light pt-5">
-
     <div class="container">
-        <div class="row g-4">
-
-            <!-- About -->
+        <div class="row g-4 pb-5">
             <div class="col-lg-4">
-                <img src="images/logo.webp" width="150" class="mb-3" alt="">
-                <p>
-                    Stackly offers premium real estate solutions with modern design,
-                    smart living features, and trusted property services.
-                </p>
-
-                <div class="social-icons mb-sm-30 mt-4">
-                                <a href="404.html"><i class="fa-brands fa-facebook-f"></i></a>
-                                <a href="404.html"><i class="fa-brands fa-instagram"></i></a>
-                                <a href="404.html"><i class="fa-brands fa-twitter"></i></a>
-                                <a href="404.html"><i class="fa-brands fa-youtube"></i></a>
-                            </div>
-
-            <!-- Quick Links -->
+                <div class="footer-widget">
+                    <img src="images/logo.webp" width="150" class="mb-3" alt="Stackly logo">
+                    <p>Stackly delivers luxury real estate experiences with tailored service, premium design, and trusted support.</p>
+                    <div class="footer-contact mt-4">
+                        <p><i class="fa-solid fa-location-dot"></i> 245 Luxury Ave, Miami, FL</p>
+                        <p><i class="fa-solid fa-phone"></i> +1 (305) 123-4567</p>
+                        <p><i class="fa-solid fa-envelope"></i> info@stackly.com</p>
+                    </div>
+                    <div class="footer-social mt-4">
+                        <a href="404.html"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="404.html"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="404.html"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="404.html"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
             <div class="col-lg-2">
-                <h5 class="mb-3">Quick Links</h5>
-                <ul class="list-unstyled">
-                    <li><a href="index.html" class="text-light">Home</a></li>
-                    <li><a href="about.html" class="text-light">About</a></li>
-                    <li><a href="gallery.html" class="text-light">Gallery</a></li>
-                    <li><a href="contact.html" class="text-light">Contact</a></li>
-                </ul>
+                <div class="footer-widget">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
             </div>
-
-            <!-- Services -->
             <div class="col-lg-3">
-                <h5 class="mb-3">Our Services</h5>
-                <ul class="list-unstyled">
-                    <li>Luxury Property Sales</li>
-                    <li>Rental Management</li>
-                    <li>Property Consultation</li>
-                    <li>Investment Planning</li>
-                </ul>
+                <div class="footer-widget">
+                    <h5>Our Services</h5>
+                    <ul class="list-unstyled">
+                        <li>Luxury Property Sales</li>
+                        <li>Rental Management</li>
+                        <li>Property Consultation</li>
+                        <li>Investment Planning</li>
+                    </ul>
+                </div>
             </div>
-
-            <!-- Newsletter -->
             <div class="col-lg-3">
-                <h5 class="mb-3">Newsletter</h5>
-                <p>Subscribe to receive updates & property news.</p>
-
-                <form id="newsletterForm">
-    <div class="input-group">
-        <input type="email" id="newsletterEmail" class="form-control" placeholder="Your Email">
-        <button class="btn-main" type="submit">
-            <span>Subscribe</span>
-        </button>
-    </div>
-    <div id="newsletterMsg" style="font-size:13px; margin-top:8px;"></div>
-</form>
+                <div class="footer-widget">
+                    <h5>Newsletter</h5>
+                    <p>Subscribe to receive property updates, market news, and exclusive offers.</p>
+                    <form id="newsletterForm" class="newsletter-form">
+                        <div class="input-group">
+                            <input type="email" id="newsletterEmail" class="form-control" placeholder="Your Email">
+                            <button class="btn-main" type="submit"><span>Subscribe</span></button>
+                        </div>
+                        <div id="newsletterMsg" style="font-size:13px; margin-top:8px;"></div>
+                    </form>
+                </div>
             </div>
-
         </div>
     </div>
-
-    <!-- Bottom Bar -->
-    <div class="bg-dark-2 text-center mt-5 py-3">
+    <div class="bg-dark-2 text-center mt-5 py-4">
         <div class="container">
-            <small>© 2026 Stackly. All Rights Reserved.</small>
+            <small class="footer-note">© 2026 Stackly. All Rights Reserved. Designed for premium property journeys.</small>
         </div>
     </div>
-
 </footer>
 
 </main>
