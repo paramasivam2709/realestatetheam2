@@ -122,6 +122,63 @@
                 border-radius: 35px;
             }
         }
+        /* MOBILE MENU FIX */
+@media (max-width: 991px) {
+
+    #menu-btn{
+        display:block !important;
+        color:#000 !important;
+        font-size:28px;
+        cursor:pointer;
+        z-index:9999;
+    }
+
+    #mainmenu{
+        display:none;
+        width:100%;
+        background:#fff;
+        position:absolute;
+        top:70px;
+        left:0;
+        padding:10px 0;
+        box-shadow:0 5px 20px rgba(0,0,0,.1);
+    }
+
+    #mainmenu.show{
+        display:block !important;
+    }
+
+    #mainmenu li{
+        display:block !important;
+        float:none !important;
+        width:100%;
+        text-align:left;
+    }
+
+    #mainmenu li a{
+        display:block;
+        padding:12px 20px !important;
+        color:#222 !important;
+    }
+
+    #mainmenu ul{
+        position:static !important;
+        visibility:visible !important;
+        opacity:1 !important;
+        display:none;
+        width:100%;
+        border:none;
+        box-shadow:none;
+    }
+
+    #mainmenu li.open > ul{
+        display:block;
+    }
+
+    .menu_side_area .btn-main{
+        display:none;
+    }
+}
     </style>
 </head>
 
@@ -148,7 +205,7 @@
                             <div class="de-flex-col header-col-mid">
                                 <ul id="mainmenu">
                                     <li class="has-child">
-                                 <a class="menu-item" href="">
+                                 <a class="menu-item" href="#">
                                Home <i class="fa-solid  dropdown-icon"></i>
                                </a>
                                <ul>
@@ -385,7 +442,7 @@
         <div class="row g-4 pb-5">
             <div class="col-lg-4">
                 <div class="footer-widget">
-                    <img src="images/logo.webp" width="150" class="mb-3" alt="Stackly logo">
+                   <a href="index.html"><img src="images/logo.webp" width="150" class="mb-3" alt="Stackly logo"></a>
                     <p>Stackly delivers luxury real estate experiences with tailored service, premium design, and trusted support.</p>
                     <div class="footer-contact mt-4">
                         <p><i class="fa-solid fa-location-dot"></i> 245 Luxury Ave, Miami, FL</p>
@@ -445,6 +502,30 @@
 </footer>
 
 </main>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+
+    const menuBtn = document.getElementById("menu-btn");
+    const menu = document.getElementById("mainmenu");
+
+    menuBtn.addEventListener("click", function(){
+        menu.classList.toggle("show");
+        menuBtn.classList.toggle("menu-open");
+    });
+
+    document.querySelectorAll("#mainmenu .has-child > a").forEach(item=>{
+        item.addEventListener("click", function(e){
+
+            if(window.innerWidth <= 991){
+                e.preventDefault();
+                this.parentElement.classList.toggle("open");
+            }
+
+        });
+    });
+
+});
+</script>
 
 <script src="js/plugins.js"></script>
 <script src="js/designesia.js"></script>

@@ -1,119 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Login | Stackly</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stackly Login</title>
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/colors/scheme-01.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <style>
-        body{
-            background:#092519;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            height:100vh;
-        }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        .auth-box{
-            background:#0f2e22;
-            padding:40px;
-            border-radius:20px;
-            width:400px;
-            color:#fff;
-        }
+body{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(rgba(9,37,25,.92),rgba(9,37,25,.92)),
+    url('images/slider/2.webp') center/cover no-repeat;
+    font-family:Arial,sans-serif;
+}
 
-        .form-control{
-            background:#0a1f17;
-            border:1px solid rgba(255,255,255,.1);
-            color:#fff;
-        }
+.login-card{
+    width:100%;
+    max-width:450px;
+    background:#0f2e22;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 20px 50px rgba(0,0,0,.4);
+}
 
-        .password-wrapper{
-            position:relative;
-        }
+.logo{
+    text-align:center;
+    margin-bottom:25px;
+}
 
-        .toggle-password{
-            position:absolute;
-            right:15px;
-            top:50%;
-            transform:translateY(-50%);
-            cursor:pointer;
-            font-size:14px;
-        }
+.logo img{
+    width:180px;
+}
 
-        .error-msg{
-            color:#ff4d4d;
-            font-size:13px;
-            display:none;
-        }
-    </style>
+.logo h3{
+    color:#fff;
+    margin-top:15px;
+}
+
+.logo p{
+    color:#b9d4c7;
+}
+
+.form-control{
+    height:52px;
+    background:#163a2c;
+    border:1px solid rgba(255,255,255,.1);
+    color:#fff;
+}
+
+.form-control:focus{
+    background:#163a2c;
+    color:#fff;
+    border-color:#39d98a;
+    box-shadow:none;
+}
+
+.form-control::placeholder{
+    color:rgba(255,255,255,.5);
+}
+
+label{
+    color:#fff;
+    margin-bottom:8px;
+}
+
+.links{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:20px;
+}
+
+.links a{
+    color:#8fd6b0;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.links a:hover{
+    color:#39d98a;
+}
+
+.btn-login{
+    width:100%;
+    height:52px;
+    border:none;
+    border-radius:12px;
+    background:#39d98a;
+    color:#092519;
+    font-weight:bold;
+    font-size:16px;
+    transition:.3s;
+}
+
+.btn-login:hover{
+    background:#56e39c;
+}
+
+.signup-text{
+    text-align:center;
+    margin-top:20px;
+    color:#b9d4c7;
+}
+
+.signup-text a{
+    color:#39d98a;
+    text-decoration:none;
+}
+
+@media(max-width:576px){
+
+    body{
+        padding:20px;
+    }
+
+    .login-card{
+        padding:25px;
+    }
+
+    .logo img{
+        width:150px;
+    }
+}
+.back-btn{
+    display:inline-block;
+    color:#8fd6b0;
+    text-decoration:none;
+    margin-bottom:20px;
+    font-size:15px;
+    transition:.3s;
+    text-align:center;
+}
+
+.back-btn:hover{
+    color:#39d98a;
+    transform:translateX(-3px);
+}
+</style>
 </head>
-
 <body>
+    <body>
 
-<div class="auth-box">
 
-    <h3 class="mb-4 text-center">Login</h3>
+<div class="login-card">
+
+<div class="login-card">
+
+    <div class="logo">
+       <a href="index.html">
+            <img src="images/logo.webp" alt="Stackly Logo">
+        </a>
+        <h3>Welcome Back</h3>
+        <p>Login to access your dashboard</p>
+    </div>
 
     <form id="loginForm">
 
         <div class="mb-3">
-            <input type="email" class="form-control" id="email" placeholder="Email">
-            <div class="error-msg" id="emailError">Email is required</div>
+            <label>Email Address</label>
+            <input
+                type="email"
+                id="email"
+                class="form-control"
+                placeholder="Enter your email"
+                required>
         </div>
 
-        <div class="mb-3 password-wrapper">
-            <input type="password" class="form-control" id="password" placeholder="Password">
-            <span class="toggle-password" onclick="togglePassword()">👁</span>
-            <div class="error-msg" id="passError">Password is required</div>
+        <div class="mb-3">
+            <label>Password</label>
+            <input
+                type="password"
+                id="password"
+                class="form-control"
+                placeholder="Enter your password"
+                required>
         </div>
 
-        <button type="submit" class="btn-main w-100">
-            <span>Login</span>
+        <div class="links">
+            <a href="forgot.html">Forgot Password?</a>
+            <a href="register.html">Create Account</a>
+        </div>
+
+        <button type="submit" class="btn-login">
+            Login
         </button>
 
-        <div class="text-center mt-3">
-            <a href="forgot.html" class="text-light">Forgot Password?</a><br>
-            <a href="register.html" class="text-light">Create Account</a>
-        </div>
-
     </form>
+
+    <div class="signup-text">
+        Don't have an account?
+        <a href="register.html">Sign Up</a>
+    </div>
+    <a href="index.html" class="back-btn">
+    ← Back to Home
+</a>
+
 </div>
 
 <script>
-function togglePassword(){
-    let pass = document.getElementById("password");
-    pass.type = pass.type === "password" ? "text" : "password";
-}
-
 document.getElementById("loginForm").addEventListener("submit", function(e){
+
     e.preventDefault();
 
-    let email = document.getElementById("email");
-    let password = document.getElementById("password");
-    let valid = true;
+    let email = document.getElementById("email").value;
 
-    if(email.value === ""){
-        document.getElementById("emailError").style.display="block";
-        valid=false;
-    } else {
-        document.getElementById("emailError").style.display="none";
-    }
+    localStorage.setItem("loggedInUser", email);
 
-    if(password.value === ""){
-        document.getElementById("passError").style.display="block";
-        valid=false;
-    } else {
-        document.getElementById("passError").style.display="none";
-    }
+    window.location.href = "404.html";
 
-    if(valid){
-        window.location.href="404.html";
-    }
 });
 </script>
 
