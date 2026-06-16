@@ -43,22 +43,7 @@ $(document).ready(function () {
 
         // If no errors → submit with AJAX
         if (!error) {
-
-            $('#send_message').attr({ 'disabled': true, 'value': 'Sending...' });
-
-            $.post("visit.php", $("#contact_form").serialize(), function (result) {
-
-                if (result.trim() === 'sent') {
-
-                    $('#contact_form').hide();        // Hides the form
-                    $('#success_message').fadeIn(500);
-
-                } else {
-                    $('#error_message').fadeIn(500);
-                    $('#send_message').removeAttr('disabled').attr('value', 'Request a Visit');
-                }
-
-            });
+            window.location.href = "404.html";
         }
     });
 });
